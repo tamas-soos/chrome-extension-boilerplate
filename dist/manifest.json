@@ -18,12 +18,44 @@
     "scripts": ["js/background.js"],
     "persistent": true
   },
-  "content_security_policy": "default-src 'self';",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
     {
-      "matches": ["https://*/*"],
-      "js": ["js/content.js"]
+      "matches": ["http://*/*", "https://*/*", "ftp://*/*", "file://*/*"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "css": ["css/pdf_content.css"],
+      "js": ["js/pdf_content.js"]
     }
   ],
-  "permissions": ["<all_urls>", "tabs", "tabCapture", "activeTab"]
+  "file_browser_handlers": [
+    {
+      "id": "open-as-pdf",
+      "default_title": "Open with PDF Viewer",
+      "file_filters": ["filesystem:*.pdf"]
+    }
+  ],
+  "permissions": [
+    "<all_urls>",
+    "tabs",
+    "tabCapture",
+    "activeTab",
+    "fileBrowserHandler",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "storage"
+  ],
+  "web_accessible_resources": [
+    "content/web/viewer.html",
+    "http:/*",
+    "https:/*",
+    "ftp:/*",
+    "file:/*",
+    "chrome-extension:/*",
+    "blob:*",
+    "data:*",
+    "filesystem:/*",
+    "drive:*"
+  ]
 }
