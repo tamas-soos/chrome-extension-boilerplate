@@ -1,4 +1,3 @@
 .DS_Store
-dist/content/*
 dist/js/*
 node_modules/
