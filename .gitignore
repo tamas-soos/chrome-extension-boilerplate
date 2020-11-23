@@ -1,3 +1,5 @@
 .DS_Store
-dist/js/*
+dist/content/web/cmaps/
+dist/content/web/images/
+dist/content/web/locale/
 node_modules/
