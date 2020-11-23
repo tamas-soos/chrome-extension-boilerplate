@@ -35,6 +35,9 @@
       "js": ["contentscript.js"]
     }
   ],
+  "storage": {
+    "managed_schema": "preferences_schema.json"
+  },
   "permissions": [
     "fileBrowserHandler",
     "webRequest",
