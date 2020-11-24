@@ -16,9 +16,6 @@ limitations under the License.
 
 "use strict";
 
-console.log("PDF content script");
-console.log("asd");
-
 var VIEWER_URL = chrome.extension.getURL("content/web/viewer.html");
 
 function getViewerURL(pdf_url) {
@@ -32,8 +29,6 @@ if (CSS.supports("animation", "0s")) {
 }
 
 function onAnimationStart(event) {
-  console.log("onAnimationStart: event", event);
-
   if (event.animationName === "pdfjs-detected-object-or-embed") {
     watchObjectOrEmbed(event.target);
   }
@@ -71,9 +66,6 @@ function watchObjectOrEmbed(elem) {
     // Until #4483 is fixed, POST requests should be ignored.
     return;
   }
-
-  console.log("1");
-
   if (elem.tagName === "EMBED" && elem.src === "about:blank") {
     // Starting from Chrome 76, internal embeds do not have the original URL,
     // but "about:blank" instead.
@@ -81,14 +73,10 @@ function watchObjectOrEmbed(elem) {
     return;
   }
 
-  console.log("2");
-
   if (elem.__I_saw_this_element) {
     return;
   }
   elem.__I_saw_this_element = true;
-
-  console.log("3");
 
   var tagName = elem.tagName.toUpperCase();
   var updateEmbedOrObject;

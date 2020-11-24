@@ -27,14 +27,12 @@ limitations under the License.
 
   getStorageNames(function (storageKeys) {
     storageLocal.get(storageKeys, function (values) {
-      // TODO @tamas delete this branch and migrateRenamedStorage()
       if (!values || !Object.keys(values).length) {
         // No local storage - nothing to migrate.
         // ... except possibly for a renamed preference name.
         migrateRenamedStorage();
         return;
       }
-
       migrateToSyncStorage(values);
     });
   });

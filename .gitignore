@@ -1,5 +1,3 @@
 .DS_Store
-dist/content/web/cmaps/
-dist/content/web/images/
-dist/content/web/locale/
+build/
 node_modules/
