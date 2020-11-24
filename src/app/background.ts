@@ -15,9 +15,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       console.log("dataUrl", dataUrl);
       sendResponse(dataUrl);
     });
+  } else if (message === "showPageAction") {
+    console.log("RUN PDF CONTENT STUFF");
+    sendResponse("pdf brnach");
   } else {
     console.log("else ");
-    sendResponse({});
+    sendResponse("web");
   }
 
   return true;

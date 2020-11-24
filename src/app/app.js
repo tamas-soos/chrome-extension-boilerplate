@@ -292,6 +292,8 @@ function drawAreaSelection(bounds) {
 }
 
 export default function start() {
+  console.log("main app start");
+
   const highlighter = new Highlighter({
     exceptSelectors: ["pre", "code"],
   });
@@ -326,4 +328,6 @@ export default function start() {
   // areaHiglhightStuff();
 
   screenshot();
+
+  console.log("main app end");
 }
