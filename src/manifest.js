@@ -17,9 +17,9 @@ module.exports = {
   default_locale: "en",
   background: {
     scripts: [
-      // WEB
+      // LARA APP
       "js/background.js",
-      // PDFJS_STATIC
+      // PDFJS STATIC
       "options/migration.js",
       "preserve-referer.js",
       "pdfHandler.js",
